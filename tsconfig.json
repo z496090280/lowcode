@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "target": "es2017",
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "jsx": "preserve",
+        "paths": {
+            "@lowcode1024/shared": [
+                "./packages/shared/src/index"
+            ]
+        }
+    },
+    "include": [
+        "apps/**/src/**/*",
+        "packages/**/src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
