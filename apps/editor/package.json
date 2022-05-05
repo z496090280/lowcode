@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@lowcode1024/shared": "workspace:^1.0.0",
-    "vue": "^3.2.33"
+    "vue": "^3.2.33",
+    "vue-router": "^4.0.15"
   }
 }

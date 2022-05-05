@@ -15,8 +15,10 @@ importers:
       typescript: ^4.6.4
       unbuild: ^0.7.4
       vite: ^2.9.7
+      vite-plugin-pages: ^0.23.0
       vitest: ^0.10.2
       vue: ^3.2.33
+      vue-router: ^4.0.15
     dependencies:
       '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.22.0_lnjlwhtxjffjmj5o7dnwvwyqxq
       '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/5.22.0_t725usgvqspm5woeqpaxbfp2qu
@@ -29,16 +31,20 @@ importers:
       typescript: registry.npmmirror.com/typescript/4.6.4
       unbuild: registry.npmmirror.com/unbuild/0.7.4
       vite: registry.npmmirror.com/vite/2.9.7_less@4.1.2
+      vite-plugin-pages: registry.npmmirror.com/vite-plugin-pages/0.23.0_vite@2.9.7
       vitest: registry.npmmirror.com/vitest/0.10.2_less@4.1.2
       vue: registry.npmmirror.com/vue/3.2.33
+      vue-router: registry.npmmirror.com/vue-router/4.0.15_vue@3.2.33
 
   apps/editor:
     specifiers:
       '@lowcode1024/shared': workspace:^1.0.0
       vue: ^3.2.33
+      vue-router: ^4.0.15
     dependencies:
       '@lowcode1024/shared': link:../../packages/shared
       vue: registry.npmmirror.com/vue/3.2.33
+      vue-router: registry.npmmirror.com/vue-router/4.0.15_vue@3.2.33
 
 packages:
 
@@ -2015,6 +2021,14 @@ packages:
     version: 2.8.10
     dev: false
 
+  registry.npmmirror.com/@types/debug/4.1.7:
+    resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/@types/debug/-/debug-4.1.7.tgz}
+    name: '@types/debug'
+    version: 4.1.7
+    dependencies:
+      '@types/ms': registry.npmmirror.com/@types/ms/0.7.31
+    dev: false
+
   registry.npmmirror.com/@types/ejs/3.1.0:
     resolution: {integrity: sha512-DCg+Ka+uDQ31lJ/UtEXVlaeV3d6t81gifaVWKJy4MYVVgvJttyX/viREy+If7fz+tK/gVxTGMtyrFPnm4gjrVA==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/@types/ejs/-/ejs-3.1.0.tgz}
     name: '@types/ejs'
@@ -2137,6 +2151,12 @@ packages:
     resolution: {integrity: sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/@types/mime/-/mime-1.3.2.tgz}
     name: '@types/mime'
     version: 1.3.2
+    dev: false
+
+  registry.npmmirror.com/@types/ms/0.7.31:
+    resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/@types/ms/-/ms-0.7.31.tgz}
+    name: '@types/ms'
+    version: 0.7.31
     dev: false
 
   registry.npmmirror.com/@types/node/10.17.60:
@@ -2528,6 +2548,12 @@ packages:
     dependencies:
       '@vue/compiler-dom': registry.npmmirror.com/@vue/compiler-dom/3.2.33
       '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.33
+    dev: false
+
+  registry.npmmirror.com/@vue/devtools-api/6.1.4:
+    resolution: {integrity: sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/@vue/devtools-api/-/devtools-api-6.1.4.tgz}
+    name: '@vue/devtools-api'
+    version: 6.1.4
     dev: false
 
   registry.npmmirror.com/@vue/reactivity-transform/3.2.33:
@@ -3061,6 +3087,13 @@ packages:
     version: 2.1.2
     engines: {node: '>= 4.5.0'}
     hasBin: true
+    dev: false
+
+  registry.npmmirror.com/available-typed-arrays/1.0.5:
+    resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz}
+    name: available-typed-arrays
+    version: 1.0.5
+    engines: {node: '>= 0.4'}
     dev: false
 
   registry.npmmirror.com/babel-core/7.0.0-bridge.0_@babel+core@7.17.10:
@@ -3914,6 +3947,28 @@ packages:
       type-detect: registry.npmmirror.com/type-detect/4.0.8
     dev: false
 
+  registry.npmmirror.com/deep-equal/2.0.5:
+    resolution: {integrity: sha512-nPiRgmbAtm1a3JsnLCf6/SLfXcjyN5v8L1TXzdCmHrXJ4hx+gW/w1YCcn7z8gJtSiDArZCgYtbao3QqLm/N1Sw==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/deep-equal/-/deep-equal-2.0.5.tgz}
+    name: deep-equal
+    version: 2.0.5
+    dependencies:
+      call-bind: registry.npmmirror.com/call-bind/1.0.2
+      es-get-iterator: registry.npmmirror.com/es-get-iterator/1.1.2
+      get-intrinsic: registry.npmmirror.com/get-intrinsic/1.1.1
+      is-arguments: registry.npmmirror.com/is-arguments/1.1.1
+      is-date-object: registry.npmmirror.com/is-date-object/1.0.5
+      is-regex: registry.npmmirror.com/is-regex/1.1.4
+      isarray: registry.npmmirror.com/isarray/2.0.5
+      object-is: registry.npmmirror.com/object-is/1.1.5
+      object-keys: registry.npmmirror.com/object-keys/1.1.1
+      object.assign: registry.npmmirror.com/object.assign/4.1.2
+      regexp.prototype.flags: registry.npmmirror.com/regexp.prototype.flags/1.4.3
+      side-channel: registry.npmmirror.com/side-channel/1.0.4
+      which-boxed-primitive: registry.npmmirror.com/which-boxed-primitive/1.0.2
+      which-collection: registry.npmmirror.com/which-collection/1.0.1
+      which-typed-array: registry.npmmirror.com/which-typed-array/1.1.7
+    dev: false
+
   registry.npmmirror.com/deep-is/0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/deep-is/-/deep-is-0.1.4.tgz}
     name: deep-is
@@ -4191,6 +4246,21 @@ packages:
       string.prototype.trimend: registry.npmmirror.com/string.prototype.trimend/1.0.5
       string.prototype.trimstart: registry.npmmirror.com/string.prototype.trimstart/1.0.5
       unbox-primitive: registry.npmmirror.com/unbox-primitive/1.0.2
+    dev: false
+
+  registry.npmmirror.com/es-get-iterator/1.1.2:
+    resolution: {integrity: sha512-+DTO8GYwbMCwbywjimwZMHp8AuYXOS2JZFWoi2AlPOS3ebnII9w/NLpNZtA7A0YLaVDw+O7KFCeoIV7OPvM7hQ==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/es-get-iterator/-/es-get-iterator-1.1.2.tgz}
+    name: es-get-iterator
+    version: 1.1.2
+    dependencies:
+      call-bind: registry.npmmirror.com/call-bind/1.0.2
+      get-intrinsic: registry.npmmirror.com/get-intrinsic/1.1.1
+      has-symbols: registry.npmmirror.com/has-symbols/1.0.3
+      is-arguments: registry.npmmirror.com/is-arguments/1.1.1
+      is-map: registry.npmmirror.com/is-map/2.0.2
+      is-set: registry.npmmirror.com/is-set/2.0.2
+      is-string: registry.npmmirror.com/is-string/1.0.7
+      isarray: registry.npmmirror.com/isarray/2.0.5
     dev: false
 
   registry.npmmirror.com/es-module-lexer/0.9.3:
@@ -5313,6 +5383,12 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  registry.npmmirror.com/foreach/2.0.5:
+    resolution: {integrity: sha512-ZBbtRiapkZYLsqoPyZOR+uPfto0GRMNQN1GwzZtZt7iZvPPbDDQV0JF5Hx4o/QFQ5c0vyuoZ98T8RSBbopzWtA==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/foreach/-/foreach-2.0.5.tgz}
+    name: foreach
+    version: 2.0.5
+    dev: false
+
   registry.npmmirror.com/forwarded/0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/forwarded/-/forwarded-0.2.0.tgz}
     name: forwarded
@@ -5414,6 +5490,12 @@ packages:
     resolution: {integrity: sha512-dsKNQNdj6xA3T+QlADDA7mOSlX0qiMINjn0cgr+eGHGsbSHzTabcIogz2+p/iqP1Xs6EP/sS2SbqH+brGTbq0g==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz}
     name: functional-red-black-tree
     version: 1.0.1
+    dev: false
+
+  registry.npmmirror.com/functions-have-names/1.2.3:
+    resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/functions-have-names/-/functions-have-names-1.2.3.tgz}
+    name: functions-have-names
+    version: 1.2.3
     dev: false
 
   registry.npmmirror.com/gensync/1.0.0-beta.2:
@@ -6059,6 +6141,16 @@ packages:
       kind-of: registry.npmmirror.com/kind-of/6.0.3
     dev: false
 
+  registry.npmmirror.com/is-arguments/1.1.1:
+    resolution: {integrity: sha512-8Q7EARjzEnKpt/PCD7e1cgUS0a6X8u5tdSiMqXhojOdoV9TsMsiO+9VLC5vAmO8N7/GmXn7yjR8qnA6bVAEzfA==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/is-arguments/-/is-arguments-1.1.1.tgz}
+    name: is-arguments
+    version: 1.1.1
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: registry.npmmirror.com/call-bind/1.0.2
+      has-tostringtag: registry.npmmirror.com/has-tostringtag/1.0.0
+    dev: false
+
   registry.npmmirror.com/is-arrayish/0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/is-arrayish/-/is-arrayish-0.2.1.tgz}
     name: is-arrayish
@@ -6216,6 +6308,12 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
+  registry.npmmirror.com/is-map/2.0.2:
+    resolution: {integrity: sha512-cOZFQQozTha1f4MxLFzlgKYPTyj26picdZTx82hbc/Xf4K/tZOOXSCkMvU4pKioRXGDLJRn0GM7Upe7kR721yg==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/is-map/-/is-map-2.0.2.tgz}
+    name: is-map
+    version: 2.0.2
+    dev: false
+
   registry.npmmirror.com/is-module/1.0.0:
     resolution: {integrity: sha512-51ypPSPCoTEIN9dy5Oy+h4pShgJmPCygKfyRCISBI+JoWT/2oJvK8QPxmwv7b/p239jXrm9M1mlQbyKJ5A152g==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/is-module/-/is-module-1.0.0.tgz}
     name: is-module
@@ -6313,6 +6411,12 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  registry.npmmirror.com/is-set/2.0.2:
+    resolution: {integrity: sha512-+2cnTEZeY5z/iXGbLhPrOAaK/Mau5k5eXq9j14CpRTftq0pAJu2MwVRSZhyZWBzx3o6X795Lz6Bpb6R0GKf37g==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/is-set/-/is-set-2.0.2.tgz}
+    name: is-set
+    version: 2.0.2
+    dev: false
+
   registry.npmmirror.com/is-shared-array-buffer/1.0.2:
     resolution: {integrity: sha512-sqN2UDu1/0y6uvXyStCOzyhAjCSlHceFoMKJW8W9EU9cvic/QdsZ0kEU93HEy3IUEFZIiH/3w+AH/UQbPHNdhA==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/is-shared-array-buffer/-/is-shared-array-buffer-1.0.2.tgz}
     name: is-shared-array-buffer
@@ -6353,11 +6457,30 @@ packages:
       has-symbols: registry.npmmirror.com/has-symbols/1.0.3
     dev: false
 
+  registry.npmmirror.com/is-typed-array/1.1.8:
+    resolution: {integrity: sha512-HqH41TNZq2fgtGT8WHVFVJhBVGuY3AnP3Q36K8JKXUxSxRgk/d+7NjmwG2vo2mYmXK8UYZKu0qH8bVP5gEisjA==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/is-typed-array/-/is-typed-array-1.1.8.tgz}
+    name: is-typed-array
+    version: 1.1.8
+    engines: {node: '>= 0.4'}
+    dependencies:
+      available-typed-arrays: registry.npmmirror.com/available-typed-arrays/1.0.5
+      call-bind: registry.npmmirror.com/call-bind/1.0.2
+      es-abstract: registry.npmmirror.com/es-abstract/1.19.5
+      foreach: registry.npmmirror.com/foreach/2.0.5
+      has-tostringtag: registry.npmmirror.com/has-tostringtag/1.0.0
+    dev: false
+
   registry.npmmirror.com/is-unicode-supported/0.1.0:
     resolution: {integrity: sha512-knxG2q4UC3u8stRGyAVJCOdxFmv5DZiRcdlIaAQXAbSfJya+OhopNotLQrstBhququ4ZpuKbDc/8S6mgXgPFPw==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/is-unicode-supported/-/is-unicode-supported-0.1.0.tgz}
     name: is-unicode-supported
     version: 0.1.0
     engines: {node: '>=10'}
+    dev: false
+
+  registry.npmmirror.com/is-weakmap/2.0.1:
+    resolution: {integrity: sha512-NSBR4kH5oVj1Uwvv970ruUkCV7O1mzgVFO4/rev2cLRda9Tm9HrL70ZPut4rOHgY0FNrUu9BCbXA2sdQ+x0chA==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/is-weakmap/-/is-weakmap-2.0.1.tgz}
+    name: is-weakmap
+    version: 2.0.1
     dev: false
 
   registry.npmmirror.com/is-weakref/1.0.2:
@@ -6366,6 +6489,15 @@ packages:
     version: 1.0.2
     dependencies:
       call-bind: registry.npmmirror.com/call-bind/1.0.2
+    dev: false
+
+  registry.npmmirror.com/is-weakset/2.0.2:
+    resolution: {integrity: sha512-t2yVvttHkQktwnNNmBQ98AhENLdPUTDTE21uPqAQ0ARwQfGeQKRVS0NNurH7bTf7RrvcVn1OOge45CnBeHCSmg==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/is-weakset/-/is-weakset-2.0.2.tgz}
+    name: is-weakset
+    version: 2.0.2
+    dependencies:
+      call-bind: registry.npmmirror.com/call-bind/1.0.2
+      get-intrinsic: registry.npmmirror.com/get-intrinsic/1.1.1
     dev: false
 
   registry.npmmirror.com/is-what/3.14.1:
@@ -6394,6 +6526,12 @@ packages:
     resolution: {integrity: sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/isarray/-/isarray-1.0.0.tgz}
     name: isarray
     version: 1.0.0
+    dev: false
+
+  registry.npmmirror.com/isarray/2.0.5:
+    resolution: {integrity: sha512-xHjhDr3cNBK0BzdUJSPXZntQUx/mwMS5Rw4A7lPJ90XGAO6ISP/ePDNuo0vhqOZU+UD5JoodwCAAoZQd3FeAKw==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/isarray/-/isarray-2.0.5.tgz}
+    name: isarray
+    version: 2.0.5
     dev: false
 
   registry.npmmirror.com/isbinaryfile/4.0.10:
@@ -7297,6 +7435,16 @@ packages:
     version: 1.12.0
     dev: false
 
+  registry.npmmirror.com/object-is/1.1.5:
+    resolution: {integrity: sha512-3cyDsyHgtmi7I7DfSSI2LDp6SK2lwvtbg0p0R1e0RvTqF5ceGx+K2dfSjm1bKDMVCFEDAQvy+o8c6a7VujOddw==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/object-is/-/object-is-1.1.5.tgz}
+    name: object-is
+    version: 1.1.5
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: registry.npmmirror.com/call-bind/1.0.2
+      define-properties: registry.npmmirror.com/define-properties/1.1.4
+    dev: false
+
   registry.npmmirror.com/object-keys/1.1.1:
     resolution: {integrity: sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/object-keys/-/object-keys-1.1.1.tgz}
     name: object-keys
@@ -8019,6 +8167,17 @@ packages:
     dependencies:
       extend-shallow: registry.npmmirror.com/extend-shallow/3.0.2
       safe-regex: registry.npmmirror.com/safe-regex/1.1.0
+    dev: false
+
+  registry.npmmirror.com/regexp.prototype.flags/1.4.3:
+    resolution: {integrity: sha512-fjggEOO3slI6Wvgjwflkc4NFRCTZAu5CnNfBd5qOMYhWdn67nJBBu34/TkD++eeFmd8C9r9jfXJ27+nSiRkSUA==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/regexp.prototype.flags/-/regexp.prototype.flags-1.4.3.tgz}
+    name: regexp.prototype.flags
+    version: 1.4.3
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: registry.npmmirror.com/call-bind/1.0.2
+      define-properties: registry.npmmirror.com/define-properties/1.1.4
+      functions-have-names: registry.npmmirror.com/functions-have-names/1.2.3
     dev: false
 
   registry.npmmirror.com/regexpp/3.2.0:
@@ -9328,6 +9487,31 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
+  registry.npmmirror.com/vite-plugin-pages/0.23.0_vite@2.9.7:
+    resolution: {integrity: sha512-KEfW6WBfACCjMXoQY0mLEzfifwCTq6FlvvtXs2XSEe9Pd4QadZTNzHOPKHDsKpVXysRzbYxE8/c/Ao9+nXsQ7w==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/vite-plugin-pages/-/vite-plugin-pages-0.23.0.tgz}
+    id: registry.npmmirror.com/vite-plugin-pages/0.23.0
+    name: vite-plugin-pages
+    version: 0.23.0
+    peerDependencies:
+      '@vue/compiler-sfc': ^3.0.0
+      vite: ^2.0.0
+    peerDependenciesMeta:
+      '@vue/compiler-sfc':
+        optional: true
+    dependencies:
+      '@types/debug': registry.npmmirror.com/@types/debug/4.1.7
+      debug: registry.npmmirror.com/debug/4.3.4
+      deep-equal: registry.npmmirror.com/deep-equal/2.0.5
+      fast-glob: registry.npmmirror.com/fast-glob/3.2.11
+      json5: registry.npmmirror.com/json5/2.2.1
+      local-pkg: registry.npmmirror.com/local-pkg/0.4.1
+      picocolors: registry.npmmirror.com/picocolors/1.0.0
+      vite: registry.npmmirror.com/vite/2.9.7_less@4.1.2
+      yaml: registry.npmmirror.com/yaml/2.0.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   registry.npmmirror.com/vite/2.9.7_less@4.1.2:
     resolution: {integrity: sha512-5hH7aNQe8rJiTTqCtPNX/6mIKlGw+1wg8UXwAxDIIN8XaSR+Zx3GT2zSu7QKa1vIaBqfUODGh3vpwY8r0AW/jw==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/vite/-/vite-2.9.7.tgz}
     id: registry.npmmirror.com/vite/2.9.7
@@ -9436,6 +9620,18 @@ packages:
       - supports-color
     dev: false
 
+  registry.npmmirror.com/vue-router/4.0.15_vue@3.2.33:
+    resolution: {integrity: sha512-xa+pIN9ZqORdIW1MkN2+d9Ui2pCM1b/UMgwYUCZOiFYHAvz/slKKBDha8DLrh5aCG/RibtrpyhKjKOZ85tYyWg==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/vue-router/-/vue-router-4.0.15.tgz}
+    id: registry.npmmirror.com/vue-router/4.0.15
+    name: vue-router
+    version: 4.0.15
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': registry.npmmirror.com/@vue/devtools-api/6.1.4
+      vue: registry.npmmirror.com/vue/3.2.33
+    dev: false
+
   registry.npmmirror.com/vue/2.6.14:
     resolution: {integrity: sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/vue/-/vue-2.6.14.tgz}
     name: vue
@@ -9487,6 +9683,31 @@ packages:
       is-number-object: registry.npmmirror.com/is-number-object/1.0.7
       is-string: registry.npmmirror.com/is-string/1.0.7
       is-symbol: registry.npmmirror.com/is-symbol/1.0.4
+    dev: false
+
+  registry.npmmirror.com/which-collection/1.0.1:
+    resolution: {integrity: sha512-W8xeTUwaln8i3K/cY1nGXzdnVZlidBcagyNFtBdD5kxnb4TvGKR7FfSIS3mYpwWS1QUCutfKz8IY8RjftB0+1A==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/which-collection/-/which-collection-1.0.1.tgz}
+    name: which-collection
+    version: 1.0.1
+    dependencies:
+      is-map: registry.npmmirror.com/is-map/2.0.2
+      is-set: registry.npmmirror.com/is-set/2.0.2
+      is-weakmap: registry.npmmirror.com/is-weakmap/2.0.1
+      is-weakset: registry.npmmirror.com/is-weakset/2.0.2
+    dev: false
+
+  registry.npmmirror.com/which-typed-array/1.1.7:
+    resolution: {integrity: sha512-vjxaB4nfDqwKI0ws7wZpxIlde1XrLX5uB0ZjpfshgmapJMD7jJWhZI+yToJTqaFByF0eNBcYxbjmCzoRP7CfEw==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/which-typed-array/-/which-typed-array-1.1.7.tgz}
+    name: which-typed-array
+    version: 1.1.7
+    engines: {node: '>= 0.4'}
+    dependencies:
+      available-typed-arrays: registry.npmmirror.com/available-typed-arrays/1.0.5
+      call-bind: registry.npmmirror.com/call-bind/1.0.2
+      es-abstract: registry.npmmirror.com/es-abstract/1.19.5
+      foreach: registry.npmmirror.com/foreach/2.0.5
+      has-tostringtag: registry.npmmirror.com/has-tostringtag/1.0.0
+      is-typed-array: registry.npmmirror.com/is-typed-array/1.1.8
     dev: false
 
   registry.npmmirror.com/which/1.3.1:
@@ -9622,6 +9843,13 @@ packages:
     dependencies:
       commander: registry.npmmirror.com/commander/6.2.1
       js-yaml: registry.npmmirror.com/js-yaml/3.14.1
+    dev: false
+
+  registry.npmmirror.com/yaml/2.0.1:
+    resolution: {integrity: sha512-1NpAYQ3wjzIlMs0mgdBmYzLkFgWBIWrzYVDYfrixhoFNNgJ444/jT2kUT2sicRbJES3oQYRZugjB6Ro8SjKeFg==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/yaml/-/yaml-2.0.1.tgz}
+    name: yaml
+    version: 2.0.1
+    engines: {node: '>= 14'}
     dev: false
 
   registry.npmmirror.com/yargs-parser/20.2.9:

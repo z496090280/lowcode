@@ -3,6 +3,7 @@ import { createApp, version } from 'vue'
 import App from './App.vue'
 import { loadScript } from './utils'
 import './main.less'
+import { router } from './router'
 
 // mock接口信息
 const materialList: IMaterial[] = [
@@ -33,18 +34,8 @@ Promise.all(materialList.map(m => loadScript(m.source))).then(() => {
     const { render } = (window as any)[m.name]
     app.component(m.name, render)
   })
-
+  app.use(router)
   app.mount('#app')
 })
-
-// loadScript('/lc-image.1.0.0.umd.js').then(res => {
-//   // console.log((window as any).LcImage)
-
-//   // const { render } = (window as any).name
-//   const app = createApp(App)
-
-//   app.component('lc-image', (window as any).name)
-//   app.mount('#app')
-// })
 
 
