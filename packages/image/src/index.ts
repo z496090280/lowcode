@@ -1,4 +1,5 @@
-import App from './index.vue'
+import App from './index'
+import './index.css'
 
 export default {
   render: App,

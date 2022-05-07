@@ -1,41 +1,21 @@
-import { Project, IMaterial } from '@lowcode1024/shared'
 import { createApp, version } from 'vue'
 import App from './App.vue'
-import { loadScript } from './utils'
+import { loadMaterials } from './utils'
 import './main.less'
 import { router } from './router'
+import { materialList, getMaterialRenderFun } from './data'
+import { createPinia } from 'pinia'
 
-// mock接口信息
-const materialList: IMaterial[] = [
-  {
-    id: 1,
-    type: 'component',
-    category: {
-      name: '基础组件'
-    },
-    source: '/lc-image.1.0.0.umd.js',
-    version: '0.0.1',
-    name: 'LcImage',
-    title: '图片',
-    thumbnail: '',
-    data: [
-      {
-        source: '/lc-image.1.0.0.umd.js',
-        version: '0.0.1'
-      }
-    ]
-  }
-]
+const pinia = createPinia()
 
-Promise.all(materialList.map(m => loadScript(m.source))).then(() => {
+loadMaterials(materialList).then(() => {
   const app = createApp(App)
 
   materialList.forEach((m) => {
-    const { render } = (window as any)[m.name]
-    app.component(m.name, render)
+    const renderFun = getMaterialRenderFun(m)
+    app.component(m.name, renderFun)
   })
   app.use(router)
+  app.use(pinia)
   app.mount('#app')
 })
-
-
