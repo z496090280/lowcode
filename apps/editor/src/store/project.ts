@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { IProject, PageElement, Project } from '@lowcode1024/shared/dist'
+import { IProject, PageElement, Project } from '../../../../packages/shared/dist/index'
 import { materialList } from '@/data'
 
 const p = Project.create()

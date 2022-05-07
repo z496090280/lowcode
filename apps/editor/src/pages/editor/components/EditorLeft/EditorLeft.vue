@@ -2,7 +2,7 @@
   import './EditorLeft.less'
   import MaterialBlock from '../MaterialBlock/MaterialBlock.vue'
   import { getMaterialDefaultProps, materialList } from '@/data'
-  import { IMaterial, PageElement } from '@lowcode1024/shared/dist'
+  import { IMaterial, PageElement } from '../../../../../../../packages/shared/dist/index'
   import { useProjectStore } from '@/store'
 
   const projectStore = useProjectStore()
