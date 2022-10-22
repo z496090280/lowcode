@@ -1,3 +1,8 @@
+/*
+ * @Author: lee
+ * @Date: 2022-05-06 15:41:20
+ * @LastEditTime: 2022-10-22 23:07:49
+ */
 import { IMaterial } from '@lowcode1024/shared/dist'
 
 export const materialList: IMaterial[] = [
@@ -10,7 +15,7 @@ export const materialList: IMaterial[] = [
     source: '/lc-image.1.0.0.umd.js',
     version: '0.0.1',
     name: 'LcImage',
-    title: '图片',
+    title: '图片组件',
     thumbnail: '',
     data: [
       {
@@ -28,7 +33,7 @@ export const materialList: IMaterial[] = [
     source: '/lc-image.1.0.0.umd.js',
     version: '0.0.1',
     name: 'LcImage',
-    title: '图片1',
+    title: '组件1',
     thumbnail: '',
     data: [
       {

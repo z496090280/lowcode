@@ -8,6 +8,7 @@ importers:
       '@typescript-eslint/parser': ^5.22.0
       '@vitejs/plugin-vue': ^2.3.1
       '@vue/cli': ^5.0.4
+      esbuild-windows-64: 0.14.38
       eslint: ^8.14.0
       eslint-define-config: ^1.4.0
       eslint-plugin-vue: ^8.7.1
@@ -26,6 +27,7 @@ importers:
       '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/5.22.0_t725usgvqspm5woeqpaxbfp2qu
       '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/2.3.1_vite@2.9.7+vue@3.2.33
       '@vue/cli': registry.npmmirror.com/@vue/cli/5.0.4
+      esbuild-windows-64: registry.npmmirror.com/esbuild-windows-64/0.14.38
       eslint: registry.npmmirror.com/eslint/8.14.0
       eslint-define-config: registry.npmmirror.com/eslint-define-config/1.4.0
       eslint-plugin-vue: registry.npmmirror.com/eslint-plugin-vue/8.7.1_eslint@8.14.0
@@ -42,14 +44,16 @@ importers:
 
   apps/editor:
     specifiers:
-      '@lowcode1024/shared': workspace:^1.0.0
+      '@lowcode1024/shared': workspace:^1.0.1
       pinia: ^2.0.14
       vue: ^3.2.33
+      vue-drag-resize-next: 0.0.2-alpha.3
       vue-router: ^4.0.15
     dependencies:
       '@lowcode1024/shared': link:../../packages/shared
       pinia: registry.npmmirror.com/pinia/2.0.14_vue@3.2.33
       vue: registry.npmmirror.com/vue/3.2.33
+      vue-drag-resize-next: registry.npmmirror.com/vue-drag-resize-next/0.0.2-alpha.3
       vue-router: registry.npmmirror.com/vue-router/4.0.15_vue@3.2.33
 
 packages:
@@ -4665,7 +4669,6 @@ packages:
     os: [win32]
     requiresBuild: true
     dev: false
-    optional: true
 
   registry.npmmirror.com/esbuild-windows-arm64/0.13.15:
     resolution: {integrity: sha512-zzvyCVVpbwQQATaf3IG8mu1IwGEiDxKkYUdA4FpoCHi1KtPa13jeScYDjlW0Qh+ebWzpKfR2ZwvqAQkSWNcKjA==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/esbuild-windows-arm64/-/esbuild-windows-arm64-0.13.15.tgz}
@@ -9731,6 +9734,14 @@ packages:
     peerDependenciesMeta:
       '@vue/composition-api':
         optional: true
+    dependencies:
+      vue: registry.npmmirror.com/vue/3.2.33
+    dev: false
+
+  registry.npmmirror.com/vue-drag-resize-next/0.0.2-alpha.3:
+    resolution: {integrity: sha512-iNEQH8Gf4QITUXykLBWpEpybxDJUNS1PrYL7D7tcEg/BXPsCUBuFlMydq3gOCucQy0w+qf3UAo1tSEEjJ0cv1w==, registry: https://registry.npm.terminus.io/, tarball: https://registry.npmmirror.com/vue-drag-resize-next/-/vue-drag-resize-next-0.0.2-alpha.3.tgz}
+    name: vue-drag-resize-next
+    version: 0.0.2-alpha.3
     dependencies:
       vue: registry.npmmirror.com/vue/3.2.33
     dev: false

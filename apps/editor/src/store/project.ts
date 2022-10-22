@@ -1,12 +1,16 @@
+/*
+ * @Author: lee
+ * @Date: 2022-05-07 15:20:48
+ * @LastEditTime: 2022-10-23 00:39:42
+ */
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { IProject, PageElement, Project } from '../../../../packages/shared/dist/index'
-import { materialList } from '@/data'
+import { IElement, IProject, PageElement, Project } from '../../../../packages/shared/dist/index'
 
 const p = Project.create()
 
 export const useProjectStore = defineStore('project', () => {
-  console.log(p.getJson())
+  // console.log(p.getJson())
   const project = ref<IProject>(p.getJson())
 
   const currentPageIndex = ref(0)
@@ -20,9 +24,22 @@ export const useProjectStore = defineStore('project', () => {
   )
 
   const currentElementIndex = ref(0)
-  const currentElement = computed(() => currentPageElements.value[currentElementIndex.value])
+  const currentElementId = ref()
+
+  const currentElement = computed(() => {
+    if(currentElementId.value) {
+      return p.getPageByIndex(currentPageIndex.value).getElementById(currentElementId.value)
+    } else {
+      return currentPageElements[currentElementIndex.value]
+    }
+  })
+
+  function setCurrentElement(id: string) {
+    currentElementId.value = id;
+  }
 
   function addElement(ele: PageElement) {
+    currentElementId.value = ele.id;
     p.getPageByIndex(currentPageIndex.value).addElement(ele)
     project.value = p.getJson()
   }
@@ -36,12 +53,24 @@ export const useProjectStore = defineStore('project', () => {
     project.value = p.getJson()
   }
 
+  function changeElementStyle(style: Record<string, any>) {
+    const element = p.getPageByIndex(currentPageIndex.value).getElementById(currentElement.value.id)
+    element.style = {
+      ...element.style,
+      ...style
+    }
+    project.value = p.getJson()
+  }
+
   return {
     project,
     currentPage,
     currentPageElements,
     currentElement,
+    
     addElement,
-    changeElementProps
+    changeElementProps,
+    changeElementStyle,
+    setCurrentElement
   }
 })
