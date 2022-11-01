@@ -1,7 +1,7 @@
 /*
  * @Author: lee
  * @Date: 2022-05-06 15:41:20
- * @LastEditTime: 2022-10-22 23:07:49
+ * @LastEditTime: 2022-11-01 20:55:43
  */
 import { IMaterial } from '@lowcode1024/shared/dist'
 
@@ -30,14 +30,14 @@ export const materialList: IMaterial[] = [
     category: {
       name: '基础组件'
     },
-    source: '/lc-image.1.0.0.umd.js',
+    source: '/lc-title.0.0.1.umd.js',
     version: '0.0.1',
-    name: 'LcImage',
-    title: '组件1',
+    name: 'LcTitle',
+    title: 'title',
     thumbnail: '',
     data: [
       {
-        source: '/lc-image.1.0.0.umd.js',
+        source: '/lc-title.0.0.1.umd.js',
         version: '0.0.1'
       }
     ]
@@ -52,7 +52,7 @@ export const materialMap: { [key: string]: IMaterial } = materialList.reduce(
 )
 
 export function getMaterialEditorProps(material: IMaterial) {
-  return (window as any)[material.name].editorProps
+  return (window as any)[material.name]?.editorProps
 }
 
 export function getMaterialRenderFun(material: IMaterial) {
@@ -61,6 +61,7 @@ export function getMaterialRenderFun(material: IMaterial) {
 
 export function getMaterialDefaultProps(material: IMaterial) {
   const props = getMaterialEditorProps(material)
+  if(!props) return ({})
   return Object.keys(props).reduce((pre, key) => {
     pre[key] = props[key].defaultValue
     return pre

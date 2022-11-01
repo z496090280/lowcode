@@ -1,7 +1,7 @@
 <!--
  * @Author: lee
  * @Date: 2022-05-05 11:23:38
- * @LastEditTime: 2022-10-22 23:13:06
+ * @LastEditTime: 2022-11-01 20:24:33
 -->
 <script setup lang="ts">
 import "./EditorContent.less";
@@ -9,25 +9,26 @@ import { useProjectStore } from "@/store";
 import { materialMap } from "@/data";
 import { watchEffect } from "vue";
 import VueDragResize from "vue-drag-resize-next";
-import 'vue-drag-resize-next/lib/style.css'
+import "vue-drag-resize-next/lib/style.css";
 
 const projectStore = useProjectStore();
 watchEffect(() => {
   console.log(projectStore.currentPageElements);
 });
-function onDragEnd (ev: any) {
+function onDragEnd(ev: any) {
   const { x, y, ...rest } = ev;
-  const parentContainer = document.querySelector('.editor-content');
-  
-  const valueX = Math.max(x, 0) && Math.min(x, parentContainer.clientWidth - rest.width);
-  const valueY = Math.max(y, 0) && Math.min(y, parentContainer.clientHeight - rest.height);
+  const parentContainer = document.querySelector(".editor-content");
+
+  const valueX =
+    Math.max(x, 0) && Math.min(x, parentContainer.clientWidth - rest.width);
+  const valueY =
+    Math.max(y, 0) && Math.min(y, parentContainer.clientHeight - rest.height);
   projectStore.changeElementStyle({
     left: valueX,
     top: valueY,
-    ...rest
-  })
+    ...rest,
+  });
 }
-
 </script>
 <template>
   <div class="editor-content">
@@ -42,8 +43,13 @@ function onDragEnd (ev: any) {
         @resize-end="onDragEnd"
         @click="projectStore.setCurrentElement(item.id)"
         :rotatable="false"
-        ><component :is="materialMap[item.materialId].name" v-bind="item.props"
-      /></VueDragResize>
+        ><component
+          v-if="projectStore.isLoaded(item.materialId)"
+          :is="materialMap[item.materialId].name"
+          v-bind="item.props"
+        />
+        <div v-else>loading</div>
+      </VueDragResize>
     </div>
   </div>
 </template>

@@ -4,7 +4,9 @@
         "target": "es2017",
         "resolveJsonModule": true,
         "moduleResolution": "node",
-        "jsx": "preserve",
-        
+        "jsx": "preserve", 
     },
+    "include": [
+      "./env.d.ts"
+    ]
 }

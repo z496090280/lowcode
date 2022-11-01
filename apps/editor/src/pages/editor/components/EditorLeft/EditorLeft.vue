@@ -1,3 +1,8 @@
+<!--
+ * @Author: lee
+ * @Date: 2022-05-05 11:15:24
+ * @LastEditTime: 2022-11-01 21:09:44
+-->
 <script  lang="ts" setup>
   import './EditorLeft.less'
   import MaterialBlock from '../MaterialBlock/MaterialBlock.vue'
@@ -8,12 +13,14 @@
   const projectStore = useProjectStore()
   
   const onclick =  (e: Event, item: IMaterial) => {
-    console.log(item)
+    // console.log(item)
     const ele = PageElement.create()
     ele.materialId = item.id
     ele.materialVersion = item.version
     ele.props = getMaterialDefaultProps(item)
     projectStore.addElement(ele)
+    // 组件异步加载
+    projectStore.load(item)
   }
 </script>
 

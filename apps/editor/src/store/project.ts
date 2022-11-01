@@ -1,16 +1,20 @@
 /*
  * @Author: lee
  * @Date: 2022-05-07 15:20:48
- * @LastEditTime: 2022-10-23 00:39:42
+ * @LastEditTime: 2022-11-01 21:02:41
  */
+import app from '@/app'
+import { getMaterialDefaultProps, getMaterialRenderFun } from '@/data'
+import { loadMaterial } from '@/utils'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { IElement, IProject, PageElement, Project } from '../../../../packages/shared/dist/index'
+import { IElement, IMaterial, IProject, PageElement, Project } from '../../../../packages/shared/dist/index'
 
 const p = Project.create()
 
 export const useProjectStore = defineStore('project', () => {
   // console.log(p.getJson())
+  const materials = ref<Record<string, IMaterial>>({});
   const project = ref<IProject>(p.getJson())
 
   const currentPageIndex = ref(0)
@@ -62,6 +66,27 @@ export const useProjectStore = defineStore('project', () => {
     project.value = p.getJson()
   }
 
+  function isLoaded(mid: number) {
+    return materials.value[mid]
+  }
+
+  async function load(material: IMaterial) {
+    if(isLoaded(material.id)){
+      return
+    }
+    
+    await loadMaterial(material)
+    const renderFun = getMaterialRenderFun(material)
+    app.component(material.name, renderFun)
+
+    materials.value = {
+      ...materials.value,
+      [material.id]: material,
+    }
+    // 异步加载完需要手动添加props
+    changeElementProps(getMaterialDefaultProps(material))
+  }
+
   return {
     project,
     currentPage,
@@ -71,6 +96,9 @@ export const useProjectStore = defineStore('project', () => {
     addElement,
     changeElementProps,
     changeElementStyle,
-    setCurrentElement
+    setCurrentElement,
+
+    load,
+    isLoaded
   }
 })
