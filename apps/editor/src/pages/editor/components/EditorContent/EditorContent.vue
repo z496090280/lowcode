@@ -1,55 +1,78 @@
 <!--
  * @Author: lee
  * @Date: 2022-05-05 11:23:38
- * @LastEditTime: 2022-11-01 20:24:33
+ * @LastEditTime: 2022-12-17 22:46:03
 -->
 <script setup lang="ts">
 import "./EditorContent.less";
 import { useProjectStore } from "@/store";
 import { materialMap } from "@/data";
-import { watchEffect } from "vue";
+import { onMounted, ref, watchEffect } from "vue";
 import VueDragResize from "vue-drag-resize-next";
 import "vue-drag-resize-next/lib/style.css";
+import { useRouter } from "vue-router";
 
 const projectStore = useProjectStore();
+const router = useRouter();
+const pageRef = ref<HTMLElement>();
+let pageWidth = 0;
+let pageHeight = 0;
 watchEffect(() => {
   console.log(projectStore.currentPageElements);
 });
+onMounted(() => {
+  if (pageRef.value) {
+    pageWidth = pageRef.value.offsetWidth;
+    pageHeight = pageRef.value.offsetHeight;
+  }
+});
 function onDragEnd(ev: any) {
   const { x, y, ...rest } = ev;
-  const parentContainer = document.querySelector(".editor-content");
 
-  const valueX =
-    Math.max(x, 0) && Math.min(x, parentContainer.clientWidth - rest.width);
-  const valueY =
-    Math.max(y, 0) && Math.min(y, parentContainer.clientHeight - rest.height);
+  const left = Math.min(Math.max(x, 0), pageWidth - rest.width);
+  const top = Math.min(Math.max(y, 0), pageHeight - rest.height);
+  console.log(left, top, pageWidth, pageHeight);
   projectStore.changeElementStyle({
-    left: valueX,
-    top: valueY,
+    left,
+    top,
     ...rest,
   });
+}
+
+function onSave() {
+  projectStore.saveProject();
+}
+function onPreview() {
+  router.push("/preview");
 }
 </script>
 <template>
   <div class="editor-content">
-    <div v-for="item in projectStore.currentPageElements" :key="item.id">
-      <VueDragResize
-        :active="projectStore.currentElement?.id === item.id"
-        :x="item.style.left || 0"
-        :y="item.style.top || 0"
-        :width="item.style.width"
-        :height="item.style.height"
-        @drag-end="onDragEnd"
-        @resize-end="onDragEnd"
-        @click="projectStore.setCurrentElement(item.id)"
-        :rotatable="false"
-        ><component
-          v-if="projectStore.isLoaded(item.materialId)"
-          :is="materialMap[item.materialId].name"
-          v-bind="item.props"
-        />
-        <div v-else>loading</div>
-      </VueDragResize>
+    <div class="editor-content-header">
+      <button @click="onSave">保存</button>
+      <button @click="onPreview">预览</button>
+    </div>
+    <div class="editor-content-page" ref="pageRef">
+      <div v-for="item in projectStore.currentPageElements" :key="item.id">
+        <VueDragResize
+          :active="projectStore.currentElement?.id === item.id"
+          :x="item.style.left || 0"
+          :y="item.style.top || 0"
+          :width="item.style.width"
+          :height="item.style.height"
+          @dragging="onDragEnd"
+          @resizing="onDragEnd"
+          :immediate="true"
+          @click="projectStore.setCurrentElement(item.id)"
+          :rotatable="false"
+          ><component
+            v-if="projectStore.isLoaded(item.materialId)"
+            :is="materialMap[item.materialId].name"
+            v-bind="item.props"
+          />
+          <div v-else>loading</div>
+        </VueDragResize>
+      </div>
     </div>
   </div>
 </template>
