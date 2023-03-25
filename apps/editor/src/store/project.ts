@@ -1,7 +1,7 @@
 /*
  * @Author: lee
  * @Date: 2022-05-07 15:20:48
- * @LastEditTime: 2022-12-17 21:22:12
+ * @LastEditTime: 2023-03-25 15:37:43
  */
 import app from "@/app";
 import { getMaterialDefaultProps, getMaterialRenderFun } from "@/data";
@@ -12,6 +12,7 @@ import {
   IElement,
   IMaterial,
   IProject,
+  Page,
   PageElement,
   Project,
 } from "../../../../packages/shared/dist/index";
@@ -104,16 +105,36 @@ export const useProjectStore = defineStore("project", () => {
     localStorage.setItem("__project", JSON.stringify(json));
   }
 
+  function addPage() {
+    const page = Page.create();
+    p.addPage(page);
+    project.value = p.getJson();
+  }
+
+  function setCurrentPageIndex(index: number) {
+    currentPageIndex.value = index;
+    currentElementId.value = undefined;
+  }
+
+  function setPageName(name) {
+    currentPage.value.name = name;
+  }
+
   return {
     project,
     currentPage,
     currentPageElements,
     currentElement,
+    currentPageIndex,
+    currentElementId,
 
+    addPage,
     addElement,
     changeElementProps,
     changeElementStyle,
     setCurrentElement,
+    setCurrentPageIndex,
+    setPageName,
 
     load,
     isLoaded,

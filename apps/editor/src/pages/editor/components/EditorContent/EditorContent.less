@@ -10,12 +10,73 @@
     border: 1px solid #eee;
   }
 
-  &-page {
-    position: relative;
-    width: 375px;
-    height: 667px;
-    margin: 20px auto;
-    box-sizing: border-box;
-    border: 1px solid #eee;
+  &-editor {
+    display: flex;
+
+    &-pages {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 240px;
+      height: 100%;
+
+      .page {
+        margin: 10px;
+        width: 150px;
+        height: 240px;
+        border: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &.active {
+          border-color: red;
+          cursor: default;
+        }
+      }
+
+      .addPage {
+        margin: 10px;
+        width: 150px;
+        height: 40px;
+        border: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+    }
+
+    &-elements {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 140px;
+      height: 100%;
+      cursor: pointer;
+
+      .element {
+        width: 100%;
+        padding: 5px 0;
+        user-select: none;
+
+        &.active {
+          color: red;
+          cursor: default;
+        }
+      }
+
+    }
+
+    &-page {
+      position: relative;
+      width: 375px;
+      height: 667px;
+      box-sizing: border-box;
+      border: 1px solid #eee;
+    }
   }
 }

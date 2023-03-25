@@ -1,7 +1,7 @@
 <!--
  * @Author: lee
  * @Date: 2022-05-05 11:20:39
- * @LastEditTime: 2022-11-01 21:07:47
+ * @LastEditTime: 2023-03-25 15:40:09
 -->
 <script setup lang="ts">
 import "./EditorRight.less";
@@ -12,8 +12,7 @@ import { computed, watchEffect } from "vue";
 const projectStore = useProjectStore();
 const pageProps = computed(() => projectStore.currentElement !== undefined);
 const loading = computed(
-  () =>
-    !projectStore.isLoaded(projectStore.currentElement.materialId)
+  () => !projectStore.isLoaded(projectStore.currentElement.materialId)
 );
 const editorPros = computed(() => {
   if (projectStore.currentElement === undefined) {
@@ -40,11 +39,21 @@ const onPropsChange = (e: Event, key: string) => {
     [key]: (e.target as HTMLInputElement).value,
   });
 };
+
+function onChangePage(e: Event) {
+  projectStore.setPageName((e.target as HTMLInputElement).value);
+}
 </script>
 
 <template>
   <div class="editor-right">
-    <div v-if="projectStore.currentElement === undefined">page</div>
+    <div v-if="projectStore.currentElement === undefined">
+      <input
+        type="text"
+        @change="($event) => onChangePage($event)"
+        :value="projectStore.currentPage.name"
+      />
+    </div>
 
     <div v-else-if="loading">loading...</div>
 
@@ -54,7 +63,7 @@ const onPropsChange = (e: Event, key: string) => {
           v-if="editorPros[key].type === 'number'"
           type="number"
           :value="editorPros[key].defaultValue"
-          @change="onPropsChange($event, key)"
+          @input="onPropsChange($event, key)"
         />
 
         <input
