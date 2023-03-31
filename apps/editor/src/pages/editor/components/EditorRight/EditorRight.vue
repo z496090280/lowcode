@@ -1,15 +1,18 @@
 <!--
  * @Author: lee
  * @Date: 2022-05-05 11:20:39
- * @LastEditTime: 2023-03-25 15:40:09
+ * @LastEditTime: 2023-03-31 16:12:38
 -->
 <script setup lang="ts">
 import "./EditorRight.less";
-import { useProjectStore } from "@/store";
+import { useProjectStore, useEventsStore } from "@/store";
 import { getMaterialEditorProps, materialMap } from "@/data";
 import { computed, watchEffect } from "vue";
+import { editorEvents } from "@/data/event";
 
 const projectStore = useProjectStore();
+const eventsStore = useEventsStore();
+
 const pageProps = computed(() => projectStore.currentElement !== undefined);
 const loading = computed(
   () => !projectStore.isLoaded(projectStore.currentElement.materialId)
@@ -42,6 +45,17 @@ const onPropsChange = (e: Event, key: string) => {
 
 function onChangePage(e: Event) {
   projectStore.setPageName((e.target as HTMLInputElement).value);
+}
+
+function onSave() {
+  eventsStore.saveEvent(
+    projectStore.currentPageIndex,
+    projectStore.currentElementId
+  );
+}
+function onChangeArgs(e: Event, index: number) {
+  const ev = e.target as HTMLInputElement;
+  eventsStore.changeArgsValues(ev.value, index);
 }
 </script>
 
@@ -79,6 +93,37 @@ function onChangePage(e: Event) {
           :value="editorPros[key].defaultValue"
           @change="onPropsChange($event, key)"
         />
+      </div>
+
+      <div>
+        <select
+          :value="eventsStore.currentType"
+          @change="e => eventsStore.changeType((e.target as any).value)"
+        >
+          <option
+            v-for="item in editorEvents"
+            :key="item.type"
+            :value="item.type"
+          >
+            {{ item.type }}
+          </option>
+        </select>
+
+        <select>
+          <option v-for="item in eventsStore.currentEvents" :key="item.name">
+            {{ item.name }}
+          </option>
+        </select>
+
+        <div v-if="eventsStore.currentEventArgs">
+          <div v-for="(item, key) in eventsStore.currentEventArgs" :key="key">
+            <input @input="($event) => onChangeArgs($event, key)" />
+          </div>
+        </div>
+
+        <div>
+          <button @click="onSave">save</button>
+        </div>
       </div>
     </div>
   </div>

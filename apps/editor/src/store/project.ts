@@ -1,7 +1,7 @@
 /*
  * @Author: lee
  * @Date: 2022-05-07 15:20:48
- * @LastEditTime: 2023-03-25 15:37:43
+ * @LastEditTime: 2023-03-27 20:59:15
  */
 import app from "@/app";
 import { getMaterialDefaultProps, getMaterialRenderFun } from "@/data";
@@ -17,7 +17,7 @@ import {
   Project,
 } from "../../../../packages/shared/dist/index";
 
-const p = Project.create();
+export const p = Project.create();
 
 export const useProjectStore = defineStore("project", () => {
   // console.log(p.getJson())
